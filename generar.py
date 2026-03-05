@@ -14,7 +14,7 @@ def main():
         "black-forest-labs/FLUX.1-schnell",
         torch_dtype=torch.float16,
     )
-    pipe.to("cuda")
+    pipe.enable_model_cpu_offload()
 
     image = pipe(args.prompt, num_inference_steps=args.steps).images[0]
     image.save(args.output)
