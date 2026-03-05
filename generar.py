@@ -1,5 +1,5 @@
+import torch
 from diffusers import FluxPipeline
-import sys
 import argparse
 
 
@@ -12,7 +12,7 @@ def main():
 
     pipe = FluxPipeline.from_pretrained(
         "black-forest-labs/FLUX.1-schnell",
-        torch_dtype="auto",
+        torch_dtype=torch.float16,
     )
     pipe.to("cuda")
 
